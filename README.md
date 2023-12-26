@@ -1,6 +1,6 @@
 Informatorio 2023
 
-Grupo 1:
+Comisión 2 Grupo 1:
 
 Hugo Vega
 Bastiani Nahuel
