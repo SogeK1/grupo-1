@@ -9,21 +9,17 @@
             {{ posts.titulo }}
         </li>
         <li>
-            {{ posts.subtitulo }}
-        </li>
-        <li>
             <p>Autor: {{ posts.autor }}</p>
         </li>
         <br>
-        <li>
-            {{ posts.texto }}
-        </li>
-
         {% if posts.imagen %}
         <img src="{{ posts.imagen.url }}" alt="" style="max-width: 100%; height: auto;">
         {% else %}
         <p>No hay imagen disponible</p>
         {% endif %}
+        <li>
+            {{ posts.texto }}
+        </li>
 
         {% if user.is_superuser or request.user|has_group:'Colaborador' %}
         <div class="container mt-3">

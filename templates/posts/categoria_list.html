@@ -1,25 +1,29 @@
 {% extends 'base.html' %}
 {% load template_tags %}
 {% block contenido %}
-<center>
-    <div class="container" style="margin: 200px;">
-        <h1>Categorias</h1>
-        <br>
-        <ul>
-            {% for categoria in categorias %}
-                <li><h3>{{ categoria.nombre }}</h3></li>
-                <a class="btn btn-success" href="{% url 'apps.posts:posts_por_categoria' pk=categoria.pk %}">
-                    Ingresar
-                {% if user.is_superuser or es_colaborador %}
-                </a>
-                <a class="btn btn-danger" href="{% url 'apps.posts:categoria_delete' pk=categoria.pk %}">
-                Eliminar
-                </a>
-                {% endif %}
-            {% empty %}
-                <li>No hay categorías</li>
-            {% endfor %}
-        </ul>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1 class="text-center">Categorías</h1>
+            <br>
+            <ul class="list-group">
+                {% for categoria in categorias %}
+                    <li class="list-group-item">
+                        <h3>{{ categoria.nombre }}</h3>
+                        <a class="btn btn-success" href="{% url 'apps.posts:posts_por_categoria' pk=categoria.pk %}">
+                            Ingresar
+                        </a>
+                        {% if user.is_superuser or request.user|has_group:"Colaborador" %}
+                            <a class="btn btn-danger" href="{% url 'apps.posts:categoria_delete' pk=categoria.pk %}">
+                                Eliminar
+                            </a>
+                        {% endif %}
+                    </li>
+                {% empty %}
+                    <li class="list-group-item">No hay categorías</li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
-</center>
+</div>
 {% endblock %}

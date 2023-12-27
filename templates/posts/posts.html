@@ -52,8 +52,8 @@
         <div class="card mt-4" style="max-width: 600px;">
             <div class="card-body">
                 <h3 class="card-title">{{ post.titulo }}</h3>
-                <p class="card-text">{{ post.subtitulo }}</p>
                 <p class="card-text"><small class="text-muted">Categoría: {{ post.categoria }}</small></p>
+                <p class="card-text">{{ post.subtitulo }}</p>
                 <a href="{% url 'apps.posts:post_individual' post.id %}" class="btn btn-success">
                     Seguir leyendo
                 </a>
