@@ -38,7 +38,7 @@ class RegistrarUsuario(CreateView):
         messages.success(self.request, 'Registro exitoso. Porfavor, inicia sesión.')
         group = Group.objects.get(name='Registrado')
         self.object.groups.add(group)
-        return redirect('index')
+        return redirect('apps.usuario:login')
         # form.save()
     
 
